@@ -12,7 +12,7 @@ jobs:
         run: |
           MY_INLINE_SECRET="INLINESECRET"
           echo "::add-mask::$MY_INLINE_SECRET"
-          echo "MY_INLINE_SECRET=$MY_INLINE_SECRET" >> "$GITHUB_OUTPUT"
+          echo "MY_INLINE_SECRET=$MY_INLINE_SECRET" >> $GITHUB_ENV"
       - name: Print secrets
         run: |
           echo "Secret set from UI: ${{ secrets.MY_SECRET }}"

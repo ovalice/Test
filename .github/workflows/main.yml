@@ -14,5 +14,5 @@ jobs:
           echo "PIPELINE_SECRET=$MY_INLINE_SECRET" >> "$GITHUB_OUTPUT"
       - name: Print secrets
         run: |
-          echo ${{ secrets.MY_SECRET }}
-          echo ${{ steps.test.outputs.PIPELINE_SECRET }}
+          echo "Secret set from UI: ${{ secrets.MY_SECRET }}"
+          echo "Secret set in pipeline: ${{ steps.test.outputs.PIPELINE_SECRET }}"

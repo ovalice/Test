@@ -8,6 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set secret variable
-        run: echo "SECRET"
+        run: |
+          MY_INLINE_SECRET="INLINESECRET"
+          echo "::add-mask::$MY_INLINE_SECRET"
+          echo "PIPELINE_SECRET=$MY_INLINE_SECRET" >> "$GITHUB_OUTPUT"
       - name: Print secrets
-        run: echo ${{ secrets.MY_SECRET }}
+        run: |
+          echo ${{ secrets.MY_SECRET }}
+          echo ${{ steps.test.outputs.PIPELINE_SECRET }}

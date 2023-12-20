@@ -1,0 +1,11 @@
+name: Configure Infrastructure
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    - name: Set secret variable
+      run: echo "SECRET"
+    - name: Print secrets
+      run: echo ${{ secrets.MY_SECRET }}

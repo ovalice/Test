@@ -5,7 +5,9 @@ on:
 
 jobs:
   test:
-    - name: Set secret variable
-      run: echo "SECRET"
-    - name: Print secrets
-      run: echo ${{ secrets.MY_SECRET }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set secret variable
+        run: echo "SECRET"
+      - name: Print secrets
+        run: echo ${{ secrets.MY_SECRET }}
